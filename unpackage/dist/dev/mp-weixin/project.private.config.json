@@ -8,6 +8,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/add_schedule/add_schedule",
+          "pathName": "pages/add_schedule/add_schedule",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "pages/schedule_table/schedule_table",
           "pathName": "pages/schedule_table/schedule_table",
           "query": "",

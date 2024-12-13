@@ -10,6 +10,11 @@ const _sfc_main = {
     };
   },
   methods: {
+    newSchedule() {
+      common_vendor.index.navigateTo({
+        url: "/pages/add_schedule/add_schedule"
+      });
+    },
     // 获取并解析存储的数据
     getSchedulesFromStorage() {
       try {
@@ -26,33 +31,6 @@ const _sfc_main = {
       common_vendor.index.navigateTo({
         url: `/pages/schedule_detail/schedule_detail?name=${encodedName}`
       });
-    },
-    // 提交对话框输入
-    dialogInputConfirm(name) {
-      common_vendor.index.showLoading({ title: "创建中..." });
-      const newSchedule = {
-        name,
-        course: []
-        // 空的课程数组
-      };
-      this.schedules.push(newSchedule);
-      common_vendor.index.setStorageSync("schedules", JSON.stringify(this.schedules));
-      this.closeDialog();
-      common_vendor.index.hideLoading();
-      this.goToScheduleDetail(newSchedule);
-    },
-    // 打开输入框对话框
-    inputDialogToggle() {
-      this.value = "";
-      this.$refs.inputDialog.open();
-    },
-    // 关闭对话框
-    dialogInputClose() {
-      this.closeDialog();
-    },
-    // 关闭输入对话框
-    closeDialog() {
-      this.$refs.inputDialog.close();
     }
   }
 };
@@ -84,7 +62,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         })
       };
     }),
-    c: common_vendor.o((...args) => $options.inputDialogToggle && $options.inputDialogToggle(...args))
+    c: common_vendor.o((...args) => $options.newSchedule && $options.newSchedule(...args))
   };
 }
 const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-71c7243e"]]);

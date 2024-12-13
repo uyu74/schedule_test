@@ -15,6 +15,7 @@ const _sfc_main = {
   },
   onLoad(options) {
     const scheduleName = decodeURIComponent(options.name);
+    console.log("加载课程表详情", scheduleName);
     const storedSchedules = common_vendor.index.getStorageSync("schedules");
     if (storedSchedules) {
       this.schedules = JSON.parse(storedSchedules);
@@ -31,7 +32,8 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   }, $data.schedule ? {
     b: common_vendor.t($data.schedule.name),
     c: common_vendor.t($data.schedule.course.length),
-    d: common_vendor.f($data.schedule.course, (course, index, i0) => {
+    d: common_vendor.t($data.schedule.date),
+    e: common_vendor.f($data.schedule.course, (course, index, i0) => {
       return {
         a: common_vendor.t(course.name),
         b: common_vendor.t(course.room),
@@ -43,7 +45,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
       };
     })
   } : {}, {
-    e: common_vendor.o((...args) => $options.addNewCourse && $options.addNewCourse(...args))
+    f: common_vendor.o((...args) => $options.addNewCourse && $options.addNewCourse(...args))
   });
 }
 const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-fde52a37"]]);

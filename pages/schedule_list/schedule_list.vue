@@ -18,25 +18,10 @@
 
     <!-- 输入对话框 -->
     <view class="add-button-container">
-      <button class="add-button" type="primary" @click="inputDialogToggle">
+      <button class="add-button" type="primary" @click="newSchedule">
         <text class="button-text">输入对话框</text>
       </button>
     </view>
-    
-<!--    <uni-popup ref="inputDialog" type="dialog">
-		
-      <uni-popup-dialog 
-        ref="inputClose" 
-        mode="input" 
-        title="输入标题" 
-        value=" " 
-        placeholder="请输入内容" 
-        before-close="true" 
-        @confirm="dialogInputConfirm" 
-        @close="dialogInputClose"
-      ></uni-popup-dialog>
-		
-    </uni-popup> -->
 
   </view>
 </template>
@@ -50,6 +35,11 @@
       };
     },
     methods: {
+		newSchedule() {
+			uni.navigateTo({
+				url: '/pages/add_schedule/add_schedule'
+			})
+		},
       // 获取并解析存储的数据
       getSchedulesFromStorage() {
         try {
@@ -61,51 +51,12 @@
           return []; // 返回空数组，避免应用崩溃
         }
       },
-
       // 处理课程详情页跳转
       goToScheduleDetail(schedule) {
         const encodedName = encodeURIComponent(schedule.name); // 编码课程表名称
         uni.navigateTo({
           url: `/pages/schedule_detail/schedule_detail?name=${encodedName}`
         });
-      },
-
-      // 提交对话框输入
-      dialogInputConfirm(name) {
-        uni.showLoading({ title: '创建中...' });
-
-        // 新增课程表信息
-        const newSchedule = {
-          name: name,
-          course: [] // 空的课程数组
-        };
-        this.schedules.push(newSchedule);
-
-        // 将更新后的数据保存到本地存储
-        uni.setStorageSync('schedules', JSON.stringify(this.schedules));
-
-        // 清空输入框，关闭对话框
-        this.closeDialog();
-        uni.hideLoading();
-
-        // 跳转到新增的课程表详情页
-        this.goToScheduleDetail(newSchedule);
-      },
-
-      // 打开输入框对话框
-      inputDialogToggle() {
-        this.value = ''; // 清空输入框内容
-        this.$refs.inputDialog.open();
-      },
-
-      // 关闭对话框
-      dialogInputClose() {
-        this.closeDialog();
-      },
-
-      // 关闭输入对话框
-      closeDialog() {
-        this.$refs.inputDialog.close();
       }
     }
   };

@@ -4,6 +4,7 @@
 		<view v-if="schedule" class="schedule-container">
 			<view class="schedule-header">课程表名称：{{ schedule.name }}</view>
 			<view class="course-count">课程数量：{{ schedule.course.length }}</view>
+			<view>学期的第一天：{{ schedule.date }}</view>
 			<view class="course-list-title">课程列表：</view>
 
 			<view v-for="(course, index) in schedule.course" :key="index" class="course-item">
@@ -41,6 +42,7 @@
 		},
 		onLoad(options) {
 			const scheduleName = decodeURIComponent(options.name); // 解码课程表名称
+			console.log('加载课程表详情', scheduleName);
 			
 			const storedSchedules = uni.getStorageSync('schedules'); // 获取存储中的课程数据
 			if (storedSchedules) {
