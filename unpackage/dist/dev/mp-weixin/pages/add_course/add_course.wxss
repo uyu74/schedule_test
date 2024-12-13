@@ -1,0 +1,56 @@
+
+.form-container.data-v-41df242a {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  margin: 20px auto;
+}
+.uni-forms-item.data-v-41df242a {
+  margin-bottom: 15px;
+}
+.input-field.data-v-41df242a {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.checkbox-group.data-v-41df242a {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.week-buttons.data-v-41df242a {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+.week-btn.data-v-41df242a {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  flex: 1;
+}
+.week-btn.data-v-41df242a:hover {
+  background-color: #45a049;
+}
+.submit-btn.data-v-41df242a {
+  width: 100%;
+  padding: 12px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.submit-btn.data-v-41df242a:hover {
+  background-color: #0056b3;
+}
