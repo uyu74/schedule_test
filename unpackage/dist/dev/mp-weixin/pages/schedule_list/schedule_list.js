@@ -60,17 +60,13 @@ if (!Array) {
   const _easycom_uni_section2 = common_vendor.resolveComponent("uni-section");
   const _easycom_uni_list_item2 = common_vendor.resolveComponent("uni-list-item");
   const _easycom_uni_list2 = common_vendor.resolveComponent("uni-list");
-  const _easycom_uni_popup_dialog2 = common_vendor.resolveComponent("uni-popup-dialog");
-  const _easycom_uni_popup2 = common_vendor.resolveComponent("uni-popup");
-  (_easycom_uni_section2 + _easycom_uni_list_item2 + _easycom_uni_list2 + _easycom_uni_popup_dialog2 + _easycom_uni_popup2)();
+  (_easycom_uni_section2 + _easycom_uni_list_item2 + _easycom_uni_list2)();
 }
 const _easycom_uni_section = () => "../../uni_modules/uni-section/components/uni-section/uni-section.js";
 const _easycom_uni_list_item = () => "../../uni_modules/uni-list/components/uni-list-item/uni-list-item.js";
 const _easycom_uni_list = () => "../../uni_modules/uni-list/components/uni-list/uni-list.js";
-const _easycom_uni_popup_dialog = () => "../../uni_modules/uni-popup/components/uni-popup-dialog/uni-popup-dialog.js";
-const _easycom_uni_popup = () => "../../uni_modules/uni-popup/components/uni-popup/uni-popup.js";
 if (!Math) {
-  (_easycom_uni_section + _easycom_uni_list_item + _easycom_uni_list + _easycom_uni_popup_dialog + _easycom_uni_popup)();
+  (_easycom_uni_section + _easycom_uni_list_item + _easycom_uni_list)();
 }
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return {
@@ -80,29 +76,15 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     b: common_vendor.f($data.schedules, (schedule, index, i0) => {
       return {
         a: index,
-        b: common_vendor.o(($event) => $options.goToScheduleDetail($data.schedules[index]), index),
+        b: common_vendor.o(($event) => $options.goToScheduleDetail(schedule), index),
         c: "71c7243e-2-" + i0 + ",71c7243e-1",
         d: common_vendor.p({
-          title: $data.schedules[index].name,
+          title: schedule.name,
           clickable: true
         })
       };
     }),
-    c: common_vendor.o((...args) => $options.inputDialogToggle && $options.inputDialogToggle(...args)),
-    d: common_vendor.sr("inputClose", "71c7243e-4,71c7243e-3"),
-    e: common_vendor.o($options.dialogInputConfirm),
-    f: common_vendor.o($options.dialogInputClose),
-    g: common_vendor.p({
-      mode: "input",
-      title: "输入标题",
-      value: " ",
-      placeholder: "请输入内容",
-      ["before-close"]: "true"
-    }),
-    h: common_vendor.sr("inputDialog", "71c7243e-3"),
-    i: common_vendor.p({
-      type: "dialog"
-    })
+    c: common_vendor.o((...args) => $options.inputDialogToggle && $options.inputDialogToggle(...args))
   };
 }
 const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-71c7243e"]]);

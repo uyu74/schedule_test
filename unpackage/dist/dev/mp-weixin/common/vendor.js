@@ -7987,9 +7987,9 @@ const createSubpackageApp = initCreateSubpackageApp();
 }
 const pages = [
   {
-    path: "pages/index/index",
+    path: "pages/schedule_table/schedule_table",
     style: {
-      navigationBarTitleText: "uni-app"
+      navigationBarTitleText: ""
     }
   },
   {
@@ -8006,6 +8006,12 @@ const pages = [
   },
   {
     path: "pages/schedule_detail/schedule_detail",
+    style: {
+      navigationBarTitleText: ""
+    }
+  },
+  {
+    path: "pages/add_schedule/add_schedule",
     style: {
       navigationBarTitleText: ""
     }

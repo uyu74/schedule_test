@@ -1,0 +1,86 @@
+
+/* 页面整体布局 */
+.container.data-v-fde52a37 {
+  padding: 20px;
+  background-color: #f8f8f8;
+  min-height: 100vh;
+}
+
+/* 课程表展示区域 */
+.schedule-container.data-v-fde52a37 {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+.schedule-header.data-v-fde52a37 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+.course-count.data-v-fde52a37 {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 15px;
+}
+.course-list-title.data-v-fde52a37 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* 单个课程项样式 */
+.course-item.data-v-fde52a37 {
+  margin-bottom: 15px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+.course-name.data-v-fde52a37, .course-room.data-v-fde52a37, .course-teacher.data-v-fde52a37, .course-time.data-v-fde52a37, .course-week.data-v-fde52a37 {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 8px;
+}
+.course-name.data-v-fde52a37 {
+  font-weight: bold;
+}
+.course-room.data-v-fde52a37 {
+  color: #666;
+}
+.course-teacher.data-v-fde52a37 {
+  color: #666;
+}
+.course-time.data-v-fde52a37, .course-week.data-v-fde52a37 {
+  color: #777;
+}
+
+/* 如果没有课程表时的提示 */
+.no-schedule.data-v-fde52a37 {
+  text-align: center;
+  font-size: 16px;
+  color: #888;
+  margin-top: 50px;
+}
+
+/* 添加课程按钮样式 */
+.add-course-button.data-v-fde52a37 {
+  display: flex;
+  justify-content: center;
+}
+.btn-add-course.data-v-fde52a37 {
+  padding: 12px 20px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.btn-add-course.data-v-fde52a37:hover {
+  background-color: #0056b3;
+}

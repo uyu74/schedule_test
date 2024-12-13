@@ -1,34 +1,34 @@
 <template>
 	<view class="form-container">
 		<!-- 新课程数据收集表单 -->
-		<uni-forms ref="form" :modelValue="courseData" label-width="80px">
+		<uni-forms ref="form" :modelValue="courseData" label-width="80px" :rules="rules">
 			<!-- 课程名称输入框 -->
-			<uni-forms-item label="课程名称">
+			<uni-forms-item label="课程名称" name="name">
 				<uni-easyinput v-model="courseData.name" placeholder="请输入课程名称" class="input-field"/>
 			</uni-forms-item>
 
 			<!-- 上课地点输入框 -->
-			<uni-forms-item label="上课地点">
+			<uni-forms-item label="上课地点" name="room">
 				<uni-easyinput v-model="courseData.room" placeholder="请输入上课地点" class="input-field"/>
 			</uni-forms-item>
 
 			<!-- 教师姓名输入框 -->
-			<uni-forms-item label="教师姓名">
+			<uni-forms-item label="教师姓名" name="teacher">
 				<uni-easyinput v-model="courseData.teacher" placeholder="请输入教师姓名" class="input-field"/>
 			</uni-forms-item>
 
 			<!-- 星期几选择框 -->
-			<uni-forms-item label="星期几">
+			<uni-forms-item label="星期几" name="weekDay">
 				<uni-data-checkbox v-model="courseData.weekDay" :localdata="weekDayRange" class="checkbox-group" @change="change"></uni-data-checkbox>
 			</uni-forms-item>
 
 			<!-- 第几节课选择框 -->
-			<uni-forms-item label="第几节课">
+			<uni-forms-item label="第几节课" name="classTime">
 				<uni-data-checkbox v-model="courseData.classTime" :localdata="classTimeRange" class="checkbox-group" @change="change"></uni-data-checkbox>
 			</uni-forms-item>
 
 			<!-- 周范围选择框 -->
-			<uni-forms-item label="周范围">
+			<uni-forms-item label="周范围" name="week">
 				<uni-data-checkbox multiple v-model="courseData.week" :localdata="weekRange" class="checkbox-group" @change="change"></uni-data-checkbox>
 			</uni-forms-item>
 
@@ -51,6 +51,7 @@
 	export default {
 		data() {
 			return {
+				scheduleName: '', // 课程表名称
 				courseData: {
 					name: '',
 					room: '',
@@ -97,22 +98,69 @@
 					{ value: '19', text: '第十九周' },
 					{ value: '20', text: '第二十周' },
 				],
+				// 表单验证规则
+				rules: {
+					name: {
+						rules: [{ required: true, errorMessage: '请输入课程名称' }],
+					},
+					room: {
+						rules: [{ required: true, errorMessage: '请输入上课地点' }],
+					},
+					teacher: {
+						rules: [{ required: true, errorMessage: '请输入教师名称' }],
+					},
+					weekDay: {
+						rules: [{ required: true, errorMessage: '请选择星期几' }],
+					},
+					classTime: {
+						rules: [{ required: true, errorMessage: '请选择第几节课' }],
+					},
+					week: {
+						rules: [{ required: true, errorMessage: '请选择周范围' }],
+					},
+				},
 			};
 		},
+		onLoad(options) {
+			this.scheduleName = decodeURIComponent(options.name); // 解码课程表名称
+		},
+		onReady() {
+			this.$refs.form.setRules(this.rules); // 设置表单验证规则
+		},
 		methods: {
-			submit() {
-				this.$refs.form.validate().then((res) => {
-					console.log('表单数据信息：', res);
-				}).catch((err) => {
+			// 提交表单
+			submit(form) { 
+				this.$refs.form.validate().then(res=>{
+					console.log('提交的课程数据：', this.courseData);
+
+					// 将新课程的信息加入到课程表中
+					const storedSchedules = uni.getStorageSync('schedules'); // 获取存储中的课程数据
+					if (storedSchedules) {
+						const schedules = JSON.parse(storedSchedules); // 解析存储的数据
+						const schedule = schedules.find(schedule => schedule.name === this.scheduleName); // 查找对应的课程表
+						if (schedule) {
+							schedule.course.push(this.courseData); // 将新课程信息加入到课程表中
+							uni.setStorageSync('schedules', JSON.stringify(schedules)); // 保存更新后的数据到本地存储
+						}
+					}
+
+					// 提交成功后跳转到课程表详情页
+					uni.navigateTo({
+						url: '/pages/schedule_detail/schedule_detail?name=' + encodeURIComponent(this.scheduleName)
+					});
+				}).catch(err =>{
 					console.log('表单错误信息：', err);
-				});
+				})
 			},
+			// 选择单周
 			selectOddWeeks() {
 				this.courseData.week = this.weekRange.filter((week) => week.value % 2 !== 0).map((week) => week.value);
 			},
+			// 选择双周
 			selectEvenWeeks() {
 				this.courseData.week = this.weekRange.filter((week) => week.value % 2 === 0).map((week) => week.value);
 			},
+			// 全选
 			selectAllWeeks() {
 				this.courseData.week = this.weekRange.map((week) => week.value);
 			},

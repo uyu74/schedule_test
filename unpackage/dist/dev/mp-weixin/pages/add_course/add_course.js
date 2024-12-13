@@ -3,6 +3,8 @@ const common_vendor = require("../../common/vendor.js");
 const _sfc_main = {
   data() {
     return {
+      scheduleName: "",
+      // 课程表名称
       courseData: {
         name: "",
         room: "",
@@ -51,23 +53,66 @@ const _sfc_main = {
         { value: "18", text: "第十八周" },
         { value: "19", text: "第十九周" },
         { value: "20", text: "第二十周" }
-      ]
+      ],
+      // 表单验证规则
+      rules: {
+        name: {
+          rules: [{ required: true, errorMessage: "请输入课程名称" }]
+        },
+        room: {
+          rules: [{ required: true, errorMessage: "请输入上课地点" }]
+        },
+        teacher: {
+          rules: [{ required: true, errorMessage: "请输入教师名称" }]
+        },
+        weekDay: {
+          rules: [{ required: true, errorMessage: "请选择星期几" }]
+        },
+        classTime: {
+          rules: [{ required: true, errorMessage: "请选择第几节课" }]
+        },
+        week: {
+          rules: [{ required: true, errorMessage: "请选择周范围" }]
+        }
+      }
     };
   },
+  onLoad(options) {
+    this.scheduleName = decodeURIComponent(options.name);
+  },
+  onReady() {
+    this.$refs.form.setRules(this.rules);
+  },
   methods: {
-    submit() {
+    // 提交表单
+    submit(form) {
       this.$refs.form.validate().then((res) => {
-        console.log("表单数据信息：", res);
+        console.log("提交的课程数据：", this.courseData);
+        const storedSchedules = common_vendor.index.getStorageSync("schedules");
+        if (storedSchedules) {
+          const schedules = JSON.parse(storedSchedules);
+          const schedule = schedules.find((schedule2) => schedule2.name === this.scheduleName);
+          if (schedule) {
+            schedule.course.push(this.courseData);
+            common_vendor.index.setStorageSync("schedules", JSON.stringify(schedules));
+          }
+        }
+        common_vendor.index.navigateTo({
+          url: "/pages/schedule_detail/schedule_detail?name=" + encodeURIComponent(this.scheduleName)
+        });
       }).catch((err) => {
         console.log("表单错误信息：", err);
       });
     },
+    // 选择单周
     selectOddWeeks() {
       this.courseData.week = this.weekRange.filter((week) => week.value % 2 !== 0).map((week) => week.value);
     },
+    // 选择双周
     selectEvenWeeks() {
       this.courseData.week = this.weekRange.filter((week) => week.value % 2 === 0).map((week) => week.value);
     },
+    // 全选
     selectAllWeeks() {
       this.courseData.week = this.weekRange.map((week) => week.value);
     },
@@ -100,7 +145,8 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
       modelValue: $data.courseData.name
     }),
     c: common_vendor.p({
-      label: "课程名称"
+      label: "课程名称",
+      name: "name"
     }),
     d: common_vendor.o(($event) => $data.courseData.room = $event),
     e: common_vendor.p({
@@ -108,7 +154,8 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
       modelValue: $data.courseData.room
     }),
     f: common_vendor.p({
-      label: "上课地点"
+      label: "上课地点",
+      name: "room"
     }),
     g: common_vendor.o(($event) => $data.courseData.teacher = $event),
     h: common_vendor.p({
@@ -116,7 +163,8 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
       modelValue: $data.courseData.teacher
     }),
     i: common_vendor.p({
-      label: "教师姓名"
+      label: "教师姓名",
+      name: "teacher"
     }),
     j: common_vendor.o($options.change),
     k: common_vendor.o(($event) => $data.courseData.weekDay = $event),
@@ -125,7 +173,8 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
       modelValue: $data.courseData.weekDay
     }),
     m: common_vendor.p({
-      label: "星期几"
+      label: "星期几",
+      name: "weekDay"
     }),
     n: common_vendor.o($options.change),
     o: common_vendor.o(($event) => $data.courseData.classTime = $event),
@@ -134,7 +183,8 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
       modelValue: $data.courseData.classTime
     }),
     q: common_vendor.p({
-      label: "第几节课"
+      label: "第几节课",
+      name: "classTime"
     }),
     r: common_vendor.o($options.change),
     s: common_vendor.o(($event) => $data.courseData.week = $event),
@@ -144,7 +194,8 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
       modelValue: $data.courseData.week
     }),
     v: common_vendor.p({
-      label: "周范围"
+      label: "周范围",
+      name: "week"
     }),
     w: common_vendor.o((...args) => $options.selectOddWeeks && $options.selectOddWeeks(...args)),
     x: common_vendor.o((...args) => $options.selectEvenWeeks && $options.selectEvenWeeks(...args)),
@@ -153,7 +204,8 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     A: common_vendor.sr("form", "41df242a-0"),
     B: common_vendor.p({
       modelValue: $data.courseData,
-      ["label-width"]: "80px"
+      ["label-width"]: "80px",
+      rules: $data.rules
     })
   };
 }

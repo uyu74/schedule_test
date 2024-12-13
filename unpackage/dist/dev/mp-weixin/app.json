@@ -1,9 +1,10 @@
 {
   "pages": [
-    "pages/index/index",
+    "pages/schedule_table/schedule_table",
     "pages/schedule_list/schedule_list",
     "pages/add_course/add_course",
-    "pages/schedule_detail/schedule_detail"
+    "pages/schedule_detail/schedule_detail",
+    "pages/add_schedule/add_schedule"
   ],
   "window": {
     "navigationBarTextStyle": "black",

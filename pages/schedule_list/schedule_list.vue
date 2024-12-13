@@ -1,22 +1,44 @@
 <template>
-<view>
-	
-	<view>
-		<uni-section title="课程表列表"></uni-section>
-			<uni-list>
-				<uni-list-item v-for="(schedule, index) in schedules" :key="index" :title="schedules[index].name" :clickable="true" @click="goToScheduleDetail(schedules[index])"></uni-list-item>
-			</uni-list>
-	</view>
-	
-	<view>
-		<button class="button" type="primary" @click="inputDialogToggle"><text class="button-text">输入对话框</text></button>
+  <view class="container">
+    
+    <!-- 课程表列表 -->
+    <view class="section-container">
+      <uni-section title="课程表列表"></uni-section>
+      <uni-list class="schedule-list">
+        <uni-list-item 
+          v-for="(schedule, index) in schedules" 
+          :key="index" 
+          :title="schedule.name" 
+          :clickable="true" 
+          @click="goToScheduleDetail(schedule)" 
+          class="schedule-item"
+        ></uni-list-item>
+      </uni-list>
+    </view>
+
+    <!-- 输入对话框 -->
+    <view class="add-button-container">
+      <button class="add-button" type="primary" @click="inputDialogToggle">
+        <text class="button-text">输入对话框</text>
+      </button>
+    </view>
+    
+<!--    <uni-popup ref="inputDialog" type="dialog">
 		
-		<uni-popup ref="inputDialog" type="dialog">
-			<uni-popup-dialog ref="inputClose" mode="input" title="输入标题" value=" " placeholder="请输入内容" before-close="true" @confirm="dialogInputConfirm" @close="dialogInputClose"></uni-popup-dialog>
-		</uni-popup>
-	</view>
-	
-</view>
+      <uni-popup-dialog 
+        ref="inputClose" 
+        mode="input" 
+        title="输入标题" 
+        value=" " 
+        placeholder="请输入内容" 
+        before-close="true" 
+        @confirm="dialogInputConfirm" 
+        @close="dialogInputClose"
+      ></uni-popup-dialog>
+		
+    </uni-popup> -->
+
+  </view>
 </template>
 
 <script>
@@ -89,24 +111,86 @@
   };
 </script>
 
-
 <style scoped>
-	.button {
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		align-items: center;
-		width: 100%;
-		height: 100upx;
-		border-radius: 6upx;
-		background-color: #007aff;
-	}
+/* 页面整体布局 */
+.container {
+  padding: 20px;
+  background-color: #f8f8f8;
+  min-height: 100vh;
+}
 
-	.button-text {
-		display: flex;
-		font-size: 36upx;
-		color: #fff;
-		line-height: 1;
-		padding: 0 20upx;
-	}
+/* 课程表部分 */
+.section-container {
+  margin-bottom: 20px;
+}
+
+.schedule-list {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.schedule-item {
+  padding: 15px;
+  font-size: 16px;
+  color: #333;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.schedule-item:last-child {
+  border-bottom: none;
+}
+
+.schedule-item:hover {
+  background-color: #f9f9f9;
+}
+
+/* 添加课程按钮 */
+.add-button-container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.add-button {
+  padding: 12px 30px;
+  background-color: #007AFF;
+  color: white;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-button:hover {
+  background-color: #005BB5;
+}
+
+.button-text {
+  font-weight: bold;
+  text-align: center;
+}
+
+/* 输入对话框 */
+.uni-popup-dialog {
+  border-radius: 10px;
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.uni-popup-dialog input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+}
+
+.uni-popup-dialog .uni-popup-dialog-footer {
+  display: flex;
+  justify-content: flex-end;
+}
 </style>
