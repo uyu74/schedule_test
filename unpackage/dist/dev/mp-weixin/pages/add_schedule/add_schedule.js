@@ -8,24 +8,64 @@ const _sfc_main = {
       baseFormData: {
         name: "",
         date: this.getTodayDate()
+      },
+      rules: {
+        name: {
+          rules: [{ required: true, errorMessage: "请输入课表名称" }]
+        },
+        date: {
+          rules: [{
+            required: true,
+            errorMessage: "请选择日期"
+          }, {
+            validateFunction: function(rule, value, data, callback) {
+              const dayOfWeek = new Date(value).getDay();
+              console.log(dayOfWeek);
+              if (dayOfWeek !== 1) {
+                callback("请选择一个周一");
+              }
+              return true;
+            }
+          }]
+        }
       }
     };
   },
+  onReady() {
+    this.$refs.form.setRules(this.rules);
+  },
   methods: {
-    submit() {
-      const newSchedule = {
-        name: this.baseFormData.name,
-        date: this.baseFormData.date,
-        course: []
-        // 空的课程数组
-      };
-      this.schedules.push(newSchedule);
-      common_vendor.index.setStorageSync("schedules", JSON.stringify(this.schedules));
-      console.log(this.baseFormData.name);
+    backToScheduleDetail() {
       common_vendor.index.navigateTo({
-        url: "/pages/schedule_detail/schedule_detail?name=" + encodeURIComponent(this.baseFormData.name)
+        url: "/pages/schedule_detail/schedule_detail"
       });
     },
+    change(e) {
+      console.log(e);
+    },
+    submit(form) {
+      console.log(this.baseFormData.name);
+      console.log(this.baseFormData.date);
+      this.$refs.form.validate().then((res) => {
+        console.log("表单数据信息：", res);
+        const newSchedule = {
+          name: this.baseFormData.name,
+          date: this.baseFormData.date,
+          course: []
+          // 空的课程数组
+        };
+        this.schedules.push(newSchedule);
+        common_vendor.index.setStorageSync("schedules", JSON.stringify(this.schedules));
+        console.log(this.baseFormData.name);
+        common_vendor.index.navigateTo({
+          url: "/pages/schedule_detail/schedule_detail?name=" + encodeURIComponent(this.baseFormData.name)
+        });
+      }).catch((err) => {
+        console.log("表单错误信息：", err);
+        return;
+      });
+    },
+    // 从本地存储中获取课程数据
     getSchedulesFromStorage() {
       try {
         const schedules = common_vendor.index.getStorageSync("schedules");
@@ -81,7 +121,8 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
       modelValue: $data.baseFormData.name
     }),
     d: common_vendor.p({
-      label: "课表名称"
+      label: "课表名称",
+      name: "name"
     }),
     e: common_vendor.o($options.change),
     f: common_vendor.o(($event) => $data.baseFormData.date = $event),
@@ -95,13 +136,16 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
       ["is-full"]: true
     }),
     i: common_vendor.p({
-      label: "日期时间"
+      label: "日期时间",
+      name: "date"
     }),
     j: common_vendor.o((...args) => $options.submit && $options.submit(...args)),
-    k: common_vendor.sr("baseForm", "3a511f24-0"),
-    l: common_vendor.p({
+    k: common_vendor.o((...args) => $options.backToScheduleDetail && $options.backToScheduleDetail(...args)),
+    l: common_vendor.sr("form", "3a511f24-0"),
+    m: common_vendor.p({
       model: $data.baseFormData,
-      labelWidth: "80px"
+      labelWidth: "80px",
+      rules: $data.rules
     })
   };
 }

@@ -1,2 +1,38 @@
 
-/* 添加样式 */
+.bottom-btn-container.data-v-1cfc69c8 {
+	position: fixed;
+	bottom: 20px; /* 设置距离底部的距离 */
+	left: 50%;
+	transform: translateX(-50%); /* 居中按钮 */
+	z-index: 9999; /* 保证按钮位于最上层 */
+}
+
+/* 每周课程的表格样式 */
+.week.data-v-1cfc69c8 {
+  font-size: 18px;
+  text-align: center;
+  padding: 10px 0; /* 添加一些内边距 */
+}
+
+/* 每节课的样式 */
+.class-time.data-v-1cfc69c8,
+.table-header.data-v-1cfc69c8 {
+  text-align: center;
+  font-weight: bold;
+}
+.class-item.data-v-1cfc69c8 {
+  text-align: center;
+  line-height: 40px; /* 设置课程单元的高度 */
+  padding: 5px 0; /* 添加一些内边距 */
+}
+.table-header.data-v-1cfc69c8 {
+  background-color: #f0f0f0;
+  font-size: 14px;
+}
+.class-item.data-v-1cfc69c8 {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+}
+.uni-row.data-v-1cfc69c8 {
+  margin-bottom: 5px; /* 每一行之间加点间距 */
+}

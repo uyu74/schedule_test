@@ -84,6 +84,11 @@ const _sfc_main = {
     this.$refs.form.setRules(this.rules);
   },
   methods: {
+    backToScheduleDetail() {
+      common_vendor.index.navigateTo({
+        url: "/pages/schedule_detail/schedule_detail?name=" + encodeURIComponent(this.scheduleName)
+      });
+    },
     // 提交表单
     submit(form) {
       this.$refs.form.validate().then((res) => {
@@ -94,6 +99,12 @@ const _sfc_main = {
           const schedule = schedules.find((schedule2) => schedule2.name === this.scheduleName);
           if (schedule) {
             schedule.course.push(this.courseData);
+            schedule.course.sort((a, b) => {
+              if (a.weekDay === b.weekDay) {
+                return a.classTime - b.classTime;
+              }
+              return a.weekDay - b.weekDay;
+            });
             common_vendor.index.setStorageSync("schedules", JSON.stringify(schedules));
           }
         }
@@ -201,8 +212,9 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     x: common_vendor.o((...args) => $options.selectEvenWeeks && $options.selectEvenWeeks(...args)),
     y: common_vendor.o((...args) => $options.selectAllWeeks && $options.selectAllWeeks(...args)),
     z: common_vendor.o((...args) => $options.submit && $options.submit(...args)),
-    A: common_vendor.sr("form", "41df242a-0"),
-    B: common_vendor.p({
+    A: common_vendor.o((...args) => $options.backToScheduleDetail && $options.backToScheduleDetail(...args)),
+    B: common_vendor.sr("form", "41df242a-0"),
+    C: common_vendor.p({
       modelValue: $data.courseData,
       ["label-width"]: "80px",
       rules: $data.rules

@@ -1,0 +1,55 @@
+
+	/* 页面容器 */
+.container {
+		padding: 20px;
+		background-color: #f4f5f7;
+		height: 100%;
+}
+
+	/* 表格样式 */
+.schedule-table {
+		background-color: #fff;
+		border-radius: 8px;
+		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+		margin-bottom: 20px;
+}
+.uni-table th {
+		background-color: #007aff;
+		color: white;
+		font-size: 16px;
+		padding: 10px;
+}
+.uni-table td {
+		font-size: 14px;
+		padding: 12px;
+		text-align: center;
+}
+.uni-table .uni-td {
+		vertical-align: middle;
+}
+
+	/* 按钮容器 */
+.button-container {
+		text-align: center;
+}
+
+	/* 删除按钮样式 */
+.delete-button {
+		padding: 12px 20px;
+		background-color: #FF5733; /* 按钮颜色 */
+		color: white;
+		border: none;
+		border-radius: 8px;
+		font-size: 18px;
+		cursor: pointer;
+		width: 100%;
+		max-width: 250px;
+}
+.delete-button:hover {
+		background-color: #FF2A00; /* 鼠标悬停时的颜色变化 */
+}
+
+	/* 删除按钮: 响应式 */
+.delete-button:active {
+		background-color: #e05c3c;
+}

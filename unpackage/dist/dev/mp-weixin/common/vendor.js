@@ -8015,6 +8015,18 @@ const pages = [
     style: {
       navigationBarTitleText: ""
     }
+  },
+  {
+    path: "pages/delete_course/delete_course",
+    style: {
+      navigationBarTitleText: ""
+    }
+  },
+  {
+    path: "pages/delete_schedule/delete_schedule",
+    style: {
+      navigationBarTitleText: ""
+    }
   }
 ];
 const globalStyle = {

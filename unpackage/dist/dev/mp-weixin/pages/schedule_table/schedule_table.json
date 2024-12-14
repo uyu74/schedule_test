@@ -3,6 +3,11 @@
   "usingComponents": {
     "uni-list-item": "../../uni_modules/uni-list/components/uni-list-item/uni-list-item",
     "uni-list": "../../uni_modules/uni-list/components/uni-list/uni-list",
-    "uni-drawer": "../../uni_modules/uni-drawer/components/uni-drawer/uni-drawer"
+    "uni-drawer": "../../uni_modules/uni-drawer/components/uni-drawer/uni-drawer",
+    "uni-th": "../../uni_modules/uni-table/components/uni-th/uni-th",
+    "uni-tr": "../../uni_modules/uni-table/components/uni-tr/uni-tr",
+    "uni-td": "../../uni_modules/uni-table/components/uni-td/uni-td",
+    "uni-table": "../../uni_modules/uni-table/components/uni-table/uni-table",
+    "uni-pagination": "../../uni_modules/uni-pagination/components/uni-pagination/uni-pagination"
   }
 }

@@ -4,7 +4,9 @@
     "pages/schedule_list/schedule_list",
     "pages/add_course/add_course",
     "pages/schedule_detail/schedule_detail",
-    "pages/add_schedule/add_schedule"
+    "pages/add_schedule/add_schedule",
+    "pages/delete_course/delete_course",
+    "pages/delete_schedule/delete_schedule"
   ],
   "window": {
     "navigationBarTextStyle": "black",

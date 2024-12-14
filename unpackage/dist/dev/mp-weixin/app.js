@@ -7,6 +7,8 @@ if (!Math) {
   "./pages/add_course/add_course.js";
   "./pages/schedule_detail/schedule_detail.js";
   "./pages/add_schedule/add_schedule.js";
+  "./pages/delete_course/delete_course.js";
+  "./pages/delete_schedule/delete_schedule.js";
 }
 const _sfc_main = {
   onLaunch: function() {

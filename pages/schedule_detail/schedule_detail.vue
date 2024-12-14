@@ -4,7 +4,7 @@
 		<view v-if="schedule" class="schedule-container">
 			<view class="schedule-header">课程表名称：{{ schedule.name }}</view>
 			<view class="course-count">课程数量：{{ schedule.course.length }}</view>
-			<view>学期的第一天：{{ schedule.date }}</view>
+			<view>学期的第一天：{{ formattedDate }}</view>
 			<view class="course-list-title">课程列表：</view>
 
 			<view v-for="(course, index) in schedule.course" :key="index" class="course-item">
@@ -23,6 +23,14 @@
 		<view class="add-course-button">
 			<button @click="addNewCourse" class="btn-add-course">添加新的课程</button>
 		</view>
+		
+		<view>
+			<button @click="backToScheduleList">返回</button>
+		</view>
+		
+		<view>
+			<button @click="toDeleteCOurse">删除</button>
+		</view>
 	</view>
 </template>
 
@@ -31,9 +39,20 @@
 		data() {
 			return {
 				schedule: null, 
+				formattedDate: '',
 			}
 		},
 		methods: {
+			toDeleteCourse() {
+				uni.navigateTo({
+					url: '/pages/delete_course/delete_course?name=' + encodeURIComponent(this.schedule.name)
+				});
+			},
+			backToScheduleList() {
+				uni.navigateTo({
+					url: '/pages/schedule_list/schedule_list'
+				});
+			},
 			addNewCourse() {
 				uni.navigateTo({
 					url: '/pages/add_course/add_course?name=' + encodeURIComponent(this.schedule.name)
@@ -48,6 +67,13 @@
 			if (storedSchedules) {
 				this.schedules = JSON.parse(storedSchedules); // 解析存储的数据
 				this.schedule = this.schedules.find(schedule => schedule.name === scheduleName); // 查找对应的课程表
+
+				// 格式化日期
+				if (this.schedule && this.schedule.date) {
+					const date = new Date(this.schedule.date);
+					this.formattedDate = date.toLocaleDateString(); // 默认显示 "yyyy/mm/dd" 格式
+				}
+
 				console.log('找到对应的课程表', this.schedule);
 			} else {
 				console.log('未找到对应的课程表');

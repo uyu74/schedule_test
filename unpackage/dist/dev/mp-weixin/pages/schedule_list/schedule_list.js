@@ -3,13 +3,21 @@ const common_vendor = require("../../common/vendor.js");
 const _sfc_main = {
   data() {
     return {
-      value: "",
-      // 输入框的值
       schedules: this.getSchedulesFromStorage()
       // 获取存储中的课程数据
     };
   },
   methods: {
+    toDeleteSchedule() {
+      common_vendor.index.navigateTo({
+        url: "/pages/delete_schedule/delete_schedule"
+      });
+    },
+    backToScheduleTable() {
+      common_vendor.index.navigateTo({
+        url: "/pages/schedule_table/schedule_table"
+      });
+    },
     newSchedule() {
       common_vendor.index.navigateTo({
         url: "/pages/add_schedule/add_schedule"
@@ -62,7 +70,9 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         })
       };
     }),
-    c: common_vendor.o((...args) => $options.newSchedule && $options.newSchedule(...args))
+    c: common_vendor.o((...args) => $options.newSchedule && $options.newSchedule(...args)),
+    d: common_vendor.o((...args) => $options.backToScheduleTable && $options.backToScheduleTable(...args)),
+    e: common_vendor.o((...args) => $options.toDeleteSchedule && $options.toDeleteSchedule(...args))
   };
 }
 const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-71c7243e"]]);
