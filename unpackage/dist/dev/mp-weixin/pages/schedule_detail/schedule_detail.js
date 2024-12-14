@@ -62,7 +62,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   } : {}, {
     f: common_vendor.o((...args) => $options.addNewCourse && $options.addNewCourse(...args)),
     g: common_vendor.o((...args) => $options.backToScheduleList && $options.backToScheduleList(...args)),
-    h: common_vendor.o((...args) => _ctx.toDeleteCOurse && _ctx.toDeleteCOurse(...args))
+    h: common_vendor.o((...args) => $options.toDeleteCourse && $options.toDeleteCourse(...args))
   });
 }
 const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-fde52a37"]]);

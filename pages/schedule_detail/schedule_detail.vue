@@ -24,12 +24,9 @@
 			<button @click="addNewCourse" class="btn-add-course">添加新的课程</button>
 		</view>
 		
-		<view>
-			<button @click="backToScheduleList">返回</button>
-		</view>
-		
-		<view>
-			<button @click="toDeleteCOurse">删除</button>
+		<view class="action-buttons">
+			<button @click="backToScheduleList" class="btn-back">返回</button>
+			<button @click="toDeleteCourse" class="btn-delete">删除</button>
 		</view>
 	</view>
 </template>
@@ -86,21 +83,23 @@
 /* 页面整体布局 */
 .container {
   padding: 20px;
-  background-color: #f8f8f8;
+  background-color: #f1f1f1;
   min-height: 100vh;
+  font-family: 'Arial', sans-serif;
 }
 
 /* 课程表展示区域 */
 .schedule-container {
-  background-color: white;
+  background-color: #ffffff;
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 25px;
 }
 
+/* 课程表头部 */
 .schedule-header {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   color: #333;
   margin-bottom: 10px;
@@ -113,7 +112,7 @@
 }
 
 .course-list-title {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
   color: #333;
   margin-bottom: 10px;
@@ -121,7 +120,7 @@
 
 /* 单个课程项样式 */
 .course-item {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   padding: 15px;
   background-color: #f9f9f9;
   border-radius: 8px;
@@ -138,11 +137,7 @@
   font-weight: bold;
 }
 
-.course-room {
-  color: #666;
-}
-
-.course-teacher {
+.course-room, .course-teacher {
   color: #666;
 }
 
@@ -162,10 +157,11 @@
 .add-course-button {
   display: flex;
   justify-content: center;
+  margin-top: 30px;
 }
 
 .btn-add-course {
-  padding: 12px 20px;
+  padding: 12px 25px;
   background-color: #007BFF;
   color: white;
   border: none;
@@ -177,5 +173,39 @@
 
 .btn-add-course:hover {
   background-color: #0056b3;
+}
+
+/* 返回和删除按钮样式 */
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-back {
+  background-color: #28a745;
+  color: white;
+}
+
+.btn-back:hover {
+  background-color: #218838;
+}
+
+.btn-delete {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-delete:hover {
+  background-color: #c82333;
 }
 </style>
