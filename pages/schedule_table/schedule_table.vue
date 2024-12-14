@@ -33,7 +33,7 @@
       <uni-tr>
         <uni-th width="20" align="center"></uni-th>
         <!-- 遍历当前周的每一天，显示日期和星期 -->
-        <uni-th v-for="(day, index) in weeklyDate[currentWeek - 1]" :key="index" align="center" width="60">
+        <uni-th v-for="(day, index) in weeklyDate[currentWeek - 1]" :key="index" align="center" width="52">
           {{ getDayOfWeek(index + 1) }} <br /> {{ day }}
         </uni-th>
       </uni-tr>

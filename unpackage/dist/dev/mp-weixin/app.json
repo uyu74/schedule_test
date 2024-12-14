@@ -14,5 +14,16 @@
     "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#F8F8F8"
   },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/schedule_table/schedule_table",
+        "text": "课表"
+      },
+      {
+        "pagePath": "pages/add_course/add_course"
+      }
+    ]
+  },
   "usingComponents": {}
 }

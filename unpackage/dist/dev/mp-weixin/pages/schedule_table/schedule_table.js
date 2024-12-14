@@ -198,7 +198,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     }),
     i: common_vendor.p({
       align: "center",
-      width: "60"
+      width: "52"
     }),
     j: common_vendor.f($data.weeklySchedule[$data.currentWeek - 1], (row, rowindex, i0) => {
       return {

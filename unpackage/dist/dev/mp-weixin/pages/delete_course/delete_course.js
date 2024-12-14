@@ -83,12 +83,12 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     c: common_vendor.f($data.schedule.course, (course, index, i0) => {
       return {
         a: common_vendor.t(course.name),
-        b: "d83cd738-4-" + i0 + "," + ("d83cd738-3-" + i0),
+        b: "53012a31-4-" + i0 + "," + ("53012a31-3-" + i0),
         c: index,
-        d: "d83cd738-3-" + i0 + ",d83cd738-0"
+        d: "53012a31-3-" + i0 + ",53012a31-0"
       };
     }),
-    d: common_vendor.sr("table", "d83cd738-0"),
+    d: common_vendor.sr("table", "53012a31-0"),
     e: common_vendor.o($options.selectionChange),
     f: common_vendor.p({
       border: true,
@@ -100,5 +100,5 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     g: common_vendor.o((...args) => $options.deleteCourses && $options.deleteCourses(...args))
   });
 }
-const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-53012a31"]]);
 wx.createPage(MiniProgramPage);

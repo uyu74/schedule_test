@@ -1,0 +1,57 @@
+
+/* 页面整体布局 */
+.container.data-v-53012a31 {
+  padding: 20px;
+  background-color: #f1f1f1;
+  min-height: 100vh;
+  font-family: 'Arial', sans-serif;
+}
+
+/* 表格样式 */
+.schedule-table.data-v-53012a31 {
+  margin-bottom: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+.table-header.data-v-53012a31 {
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #f4f4f4;
+  color: #333;
+  padding: 12px;
+}
+.table-cell.data-v-53012a31 {
+  font-size: 16px;
+  color: #555;
+  padding: 10px;
+  text-align: center;
+}
+
+/* 按钮容器样式 */
+.delete-button-container.data-v-53012a31 {
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* 确认删除按钮 */
+.btn-delete.data-v-53012a31 {
+  padding: 12px 25px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.btn-delete.data-v-53012a31:hover {
+  background-color: #c82333;
+}
+
+/* 提示信息 */
+uni-toast.data-v-53012a31 {
+  font-size: 16px;
+  color: #333;
+}

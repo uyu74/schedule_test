@@ -55,5 +55,20 @@
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
 	},
-	"uniIdRouter": {}
+	"uniIdRouter": {},
+	"tabBar": {
+		"list": [
+			{
+				"pagePath": "pages/schedule_table/schedule_table",
+				"text": "课表"
+			},
+			{
+				"pagePath": "pages/add_course/add_course", // todo添加完成以后，请删除这个tabbar
+			// 	"pagePath": "pages/todo/todo",
+			// 	"text": "待办",
+			// 	"iconPath": "static/tododisIcon.png",
+			// 	"selectedIconPath": "static/todoableIcon.png"
+			}
+		],
+	}
 }

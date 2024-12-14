@@ -8036,10 +8036,22 @@ const globalStyle = {
   backgroundColor: "#F8F8F8"
 };
 const uniIdRouter = {};
+const tabBar = {
+  list: [
+    {
+      pagePath: "pages/schedule_table/schedule_table",
+      text: "课表"
+    },
+    {
+      pagePath: "pages/add_course/add_course"
+    }
+  ]
+};
 const e = {
   pages,
   globalStyle,
-  uniIdRouter
+  uniIdRouter,
+  tabBar
 };
 var define_process_env_UNI_SECURE_NETWORK_CONFIG_default = [];
 function t(e2) {
