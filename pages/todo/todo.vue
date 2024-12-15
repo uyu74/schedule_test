@@ -1,6 +1,5 @@
 <template>
 	<view class="contenter">
-		这里是todo.vue
 		<div v-for="(todo,index) in todos" :key="index">
 			<view :class="{
 				'goodtodo-item':true,

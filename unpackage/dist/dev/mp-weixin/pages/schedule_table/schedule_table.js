@@ -176,8 +176,8 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         })
       };
     }),
-    b: common_vendor.o(($event) => $options.closeDrawer("showLeft")),
-    c: common_vendor.o((...args) => $options.manageSchedules && $options.manageSchedules(...args)),
+    b: common_vendor.o((...args) => $options.manageSchedules && $options.manageSchedules(...args)),
+    c: common_vendor.o(($event) => $options.closeDrawer("showLeft")),
     d: common_vendor.sr("showLeft", "1cfc69c8-0"),
     e: common_vendor.o(($event) => $options.change($event, "showLeft")),
     f: common_vendor.p({

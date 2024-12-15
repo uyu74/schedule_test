@@ -17,12 +17,15 @@
               @click="changeScheduleOnShow(schedule)">
             </uni-list-item>
           </uni-list>
+		  
+		  <button @click="manageSchedules">
+		    <text>多课表管理</text>
+		  </button>
+		  
           <button @click="closeDrawer('showLeft')">
-            <text>关闭Drawer</text>
+            <text>关闭</text>
           </button>
-          <button @click="manageSchedules">
-            <text>多课表管理</text>
-          </button>
+
         </view>
       </uni-drawer>
     </view>

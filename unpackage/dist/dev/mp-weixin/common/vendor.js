@@ -8059,7 +8059,8 @@ const tabBar = {
     {
       pagePath: "pages/schedule_table/schedule_table",
       text: "课表",
-      iconPath: "static/课程表.png"
+      iconPath: "static/课表.png",
+      selectedIconPath: "static/课程表.png"
     },
     {
       pagePath: "pages/todo/todo",
