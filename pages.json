@@ -47,6 +47,24 @@
 			{
 				"navigationBarTitleText" : ""
 			}
+		},
+		{
+			"path": "pages/todo/todo",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		},
+		{
+			"path": "pages/todo_settings/todo_settings",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		},
+		{
+			"path": "pages/obtain_todo_infromation/obtain_todo_infromation",
+			"style": {
+				"navigationBarTitleText": ""
+			}
 		}
 	],
 	"globalStyle": {
@@ -64,11 +82,10 @@
 				"iconPath": "static/课程表.png"
 			},
 			{
-				"pagePath": "pages/add_course/add_course" // todo添加完成以后，请删除这个tabbar
-			// 	"pagePath": "pages/todo/todo",
-			// 	"text": "待办",
-			// 	"iconPath": "static/tododisIcon.png",
-			// 	"selectedIconPath": "static/todoableIcon.png"
+				"pagePath": "pages/todo/todo",
+				"text": "待办",
+				"iconPath": "static/tododisIcon .png",
+				"selectedIconPath": "static/todoableIcon.png"
 			}
 		]
 	}

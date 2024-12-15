@@ -76,12 +76,12 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     c: common_vendor.f($data.schedules, (schedule, index, i0) => {
       return {
         a: common_vendor.t(schedule.name),
-        b: "37e04cdc-4-" + i0 + "," + ("37e04cdc-3-" + i0),
+        b: "2cfde0d5-4-" + i0 + "," + ("2cfde0d5-3-" + i0),
         c: index,
-        d: "37e04cdc-3-" + i0 + ",37e04cdc-0"
+        d: "2cfde0d5-3-" + i0 + ",2cfde0d5-0"
       };
     }),
-    d: common_vendor.sr("table", "37e04cdc-0"),
+    d: common_vendor.sr("table", "2cfde0d5-0"),
     e: common_vendor.o($options.selectionChange),
     f: common_vendor.p({
       border: true,

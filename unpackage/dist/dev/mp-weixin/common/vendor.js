@@ -8027,6 +8027,24 @@ const pages = [
     style: {
       navigationBarTitleText: ""
     }
+  },
+  {
+    path: "pages/todo/todo",
+    style: {
+      navigationBarTitleText: ""
+    }
+  },
+  {
+    path: "pages/todo_settings/todo_settings",
+    style: {
+      navigationBarTitleText: ""
+    }
+  },
+  {
+    path: "pages/obtain_todo_infromation/obtain_todo_infromation",
+    style: {
+      navigationBarTitleText: ""
+    }
   }
 ];
 const globalStyle = {
@@ -8040,10 +8058,14 @@ const tabBar = {
   list: [
     {
       pagePath: "pages/schedule_table/schedule_table",
-      text: "课表"
+      text: "课表",
+      iconPath: "static/课程表.png"
     },
     {
-      pagePath: "pages/add_course/add_course"
+      pagePath: "pages/todo/todo",
+      text: "待办",
+      iconPath: "static/tododisIcon .png",
+      selectedIconPath: "static/todoableIcon.png"
     }
   ]
 };

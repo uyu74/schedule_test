@@ -6,7 +6,10 @@
     "pages/schedule_detail/schedule_detail",
     "pages/add_schedule/add_schedule",
     "pages/delete_course/delete_course",
-    "pages/delete_schedule/delete_schedule"
+    "pages/delete_schedule/delete_schedule",
+    "pages/todo/todo",
+    "pages/todo_settings/todo_settings",
+    "pages/obtain_todo_infromation/obtain_todo_infromation"
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -18,10 +21,14 @@
     "list": [
       {
         "pagePath": "pages/schedule_table/schedule_table",
-        "text": "课表"
+        "text": "课表",
+        "iconPath": "static/课程表.png"
       },
       {
-        "pagePath": "pages/add_course/add_course"
+        "pagePath": "pages/todo/todo",
+        "text": "待办",
+        "iconPath": "static/tododisIcon .png",
+        "selectedIconPath": "static/todoableIcon.png"
       }
     ]
   },

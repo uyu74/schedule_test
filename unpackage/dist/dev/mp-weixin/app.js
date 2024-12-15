@@ -9,6 +9,9 @@ if (!Math) {
   "./pages/add_schedule/add_schedule.js";
   "./pages/delete_course/delete_course.js";
   "./pages/delete_schedule/delete_schedule.js";
+  "./pages/todo/todo.js";
+  "./pages/todo_settings/todo_settings.js";
+  "./pages/obtain_todo_infromation/obtain_todo_infromation.js";
 }
 const _sfc_main = {
   onLaunch: function() {
