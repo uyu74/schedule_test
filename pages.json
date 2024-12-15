@@ -60,15 +60,16 @@
 		"list": [
 			{
 				"pagePath": "pages/schedule_table/schedule_table",
-				"text": "课表"
+				"text": "课表",
+				"iconPath": "static/课程表.png"
 			},
 			{
-				"pagePath": "pages/add_course/add_course", // todo添加完成以后，请删除这个tabbar
+				"pagePath": "pages/add_course/add_course" // todo添加完成以后，请删除这个tabbar
 			// 	"pagePath": "pages/todo/todo",
 			// 	"text": "待办",
 			// 	"iconPath": "static/tododisIcon.png",
 			// 	"selectedIconPath": "static/todoableIcon.png"
 			}
-		],
+		]
 	}
 }
