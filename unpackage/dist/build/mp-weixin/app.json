@@ -1,0 +1,37 @@
+{
+  "pages": [
+    "pages/schedule_table/schedule_table",
+    "pages/schedule_list/schedule_list",
+    "pages/add_course/add_course",
+    "pages/schedule_detail/schedule_detail",
+    "pages/add_schedule/add_schedule",
+    "pages/delete_course/delete_course",
+    "pages/delete_schedule/delete_schedule",
+    "pages/todo/todo",
+    "pages/todo_settings/todo_settings",
+    "pages/obtain_todo_infromation/obtain_todo_infromation"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/schedule_table/schedule_table",
+        "text": "课表",
+        "iconPath": "static/课表.png",
+        "selectedIconPath": "static/课程表.png"
+      },
+      {
+        "pagePath": "pages/todo/todo",
+        "text": "待办",
+        "iconPath": "static/tododisIcon .png",
+        "selectedIconPath": "static/todoableIcon.png"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

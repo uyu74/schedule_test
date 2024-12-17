@@ -52,7 +52,7 @@ const _sfc_main = {
     },
     // 管理多课程表
     manageSchedules() {
-      common_vendor.index.navigateTo({
+      common_vendor.index.redirectTo({
         url: "/pages/schedule_list/schedule_list"
       });
     },

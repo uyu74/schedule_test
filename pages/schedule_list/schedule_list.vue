@@ -18,7 +18,7 @@
     <!-- 添加课程按钮 -->
     <view class="add-button-container">
       <button class="add-button" type="primary" @click="newSchedule">
-        <text class="button-text">添加课程</text>
+        <text class="button-text">添加课程表</text>
       </button>
     </view>
 
@@ -39,17 +39,20 @@
     },
     methods: {
       toDeleteSchedule() {
-        uni.navigateTo({
+        uni.redirectTo({
           url: '/pages/delete_schedule/delete_schedule'
         })
       },
       backToScheduleTable() {
-        uni.navigateTo({
-          url: '/pages/schedule_table/schedule_table'
-        })
+        uni.switchTab({
+          url: '/pages/schedule_table/schedule_table',
+          // success: (res) => {},
+          // fail: (res) => {},
+          // complete: (res) => {},
+        });
       },
       newSchedule() {
-        uni.navigateTo({
+        uni.redirectTo({
           url: '/pages/add_schedule/add_schedule'
         })
       },

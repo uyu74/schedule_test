@@ -35,7 +35,7 @@
 			deleteSchedules() {
 				// 判断是否选中课表
 				if (this.selectedSchedules.length === 0) {
-					uni.navigateTo({
+					uni.redirectTo({
 						url: '/pages/schedule_list/schedule_list'
 					})
 					uni.showToast({

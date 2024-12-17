@@ -162,7 +162,7 @@ export default {
         }
 
         // 提交成功后跳转到课程表详情页
-        uni.navigateTo({
+        uni.redirectTo({
           url: '/pages/schedule_detail/schedule_detail?name=' + encodeURIComponent(this.scheduleName)
         });
       }).catch(err => {

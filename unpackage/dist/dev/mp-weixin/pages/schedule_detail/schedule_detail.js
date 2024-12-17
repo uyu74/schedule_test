@@ -9,17 +9,17 @@ const _sfc_main = {
   },
   methods: {
     toDeleteCourse() {
-      common_vendor.index.navigateTo({
+      common_vendor.index.redirectTo({
         url: "/pages/delete_course/delete_course?name=" + encodeURIComponent(this.schedule.name)
       });
     },
     backToScheduleList() {
-      common_vendor.index.navigateTo({
+      common_vendor.index.redirectTo({
         url: "/pages/schedule_list/schedule_list"
       });
     },
     addNewCourse() {
-      common_vendor.index.navigateTo({
+      common_vendor.index.redirectTo({
         url: "/pages/add_course/add_course?name=" + encodeURIComponent(this.schedule.name)
       });
     }

@@ -9,15 +9,18 @@ const _sfc_main = {
   },
   methods: {
     deleteCourses() {
-      if (this.selectedCourses.length === 0 && this.schedule.course.length) {
+      if (this.selectedCourses.length === 0) {
         common_vendor.index.showToast({
-          title: "请选择要删除的课程",
+          title: "未删除任何课程",
           icon: "none"
+        });
+        common_vendor.index.redirectTo({
+          url: "/pages/schedule_detail/schedule_detail?name=" + encodeURIComponent(this.schedule.name)
         });
         return;
       }
       if (this.schedule.course.length === 0) {
-        common_vendor.index.navigateTo({
+        common_vendor.index.redirectTo({
           url: "/pages/schedule_detail/schedule_detail?name=" + encodeURIComponent(this.schedule.name)
         });
       }
@@ -37,7 +40,7 @@ const _sfc_main = {
         icon: "success"
       });
       this.selectedCourses = [];
-      common_vendor.index.navigateTo({
+      common_vendor.index.redirectTo({
         url: "/pages/schedule_detail/schedule_detail?name=" + encodeURIComponent(this.schedule.name)
       });
     },

@@ -13,7 +13,7 @@ const _sfc_main = {
     // 删除选中的课表
     deleteSchedules() {
       if (this.selectedSchedules.length === 0) {
-        common_vendor.index.navigateTo({
+        common_vendor.index.redirectTo({
           url: "/pages/schedule_list/schedule_list"
         });
         common_vendor.index.showToast({

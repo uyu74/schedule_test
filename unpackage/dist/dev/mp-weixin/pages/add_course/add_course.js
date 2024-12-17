@@ -108,7 +108,7 @@ const _sfc_main = {
             common_vendor.index.setStorageSync("schedules", JSON.stringify(schedules));
           }
         }
-        common_vendor.index.navigateTo({
+        common_vendor.index.redirectTo({
           url: "/pages/schedule_detail/schedule_detail?name=" + encodeURIComponent(this.scheduleName)
         });
       }).catch((err) => {

@@ -63,7 +63,7 @@
 		},
 		methods: {		
 			backToScheduleDetail() {
-				uni.navigateTo({
+				uni.redirectTo({
 					url: '/pages/schedule_detail/schedule_detail'
 				})
 			},
@@ -91,7 +91,7 @@
 
 				console.log(this.baseFormData.name);
 
-				uni.navigateTo({
+				uni.redirectTo({
 				  url: '/pages/schedule_detail/schedule_detail?name=' + encodeURIComponent(this.baseFormData.name)
 				});
 			  }).catch(err => {

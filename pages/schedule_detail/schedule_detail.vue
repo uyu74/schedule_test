@@ -41,17 +41,17 @@
 		},
 		methods: {
 			toDeleteCourse() {
-				uni.navigateTo({
+				uni.redirectTo({
 					url: '/pages/delete_course/delete_course?name=' + encodeURIComponent(this.schedule.name)
 				});
 			},
 			backToScheduleList() {
-				uni.navigateTo({
+				uni.redirectTo({
 					url: '/pages/schedule_list/schedule_list'
 				});
 			},
 			addNewCourse() {
-				uni.navigateTo({
+				uni.redirectTo({
 					url: '/pages/add_course/add_course?name=' + encodeURIComponent(this.schedule.name)
 				});
 			}

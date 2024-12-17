@@ -36,7 +36,7 @@ const _sfc_main = {
   },
   methods: {
     backToScheduleDetail() {
-      common_vendor.index.navigateTo({
+      common_vendor.index.redirectTo({
         url: "/pages/schedule_detail/schedule_detail"
       });
     },
@@ -57,7 +57,7 @@ const _sfc_main = {
         this.schedules.push(newSchedule);
         common_vendor.index.setStorageSync("schedules", JSON.stringify(this.schedules));
         console.log(this.baseFormData.name);
-        common_vendor.index.navigateTo({
+        common_vendor.index.redirectTo({
           url: "/pages/schedule_detail/schedule_detail?name=" + encodeURIComponent(this.baseFormData.name)
         });
       }).catch((err) => {

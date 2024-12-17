@@ -122,7 +122,7 @@ export default {
     },
     // 管理多课程表
     manageSchedules() {
-      uni.navigateTo({
+      uni.redirectTo({
         url: '/pages/schedule_list/schedule_list',
       });
     },

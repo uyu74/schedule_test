@@ -9,17 +9,20 @@ const _sfc_main = {
   },
   methods: {
     toDeleteSchedule() {
-      common_vendor.index.navigateTo({
+      common_vendor.index.redirectTo({
         url: "/pages/delete_schedule/delete_schedule"
       });
     },
     backToScheduleTable() {
-      common_vendor.index.navigateTo({
+      common_vendor.index.switchTab({
         url: "/pages/schedule_table/schedule_table"
+        // success: (res) => {},
+        // fail: (res) => {},
+        // complete: (res) => {},
       });
     },
     newSchedule() {
-      common_vendor.index.navigateTo({
+      common_vendor.index.redirectTo({
         url: "/pages/add_schedule/add_schedule"
       });
     },

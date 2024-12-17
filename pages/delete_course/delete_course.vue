@@ -35,16 +35,27 @@
 		},
 		methods: {
 			deleteCourses() {
-				if (this.selectedCourses.length === 0 && this.schedule.course.length) {
+				// if (this.selectedCourses.length === 0 && this.schedule.course.length) {
+				// 	uni.showToast({
+				// 		title: '请选择要删除的课程',
+				// 		icon: 'none'
+				// 	});
+				// 	return;
+				// }
+
+				if (this.selectedCourses.length === 0) {
 					uni.showToast({
-						title: '请选择要删除的课程',
+						title: '未删除任何课程',
 						icon: 'none'
+					});
+					uni.redirectTo({
+						url: '/pages/schedule_detail/schedule_detail?name=' + encodeURIComponent(this.schedule.name)
 					});
 					return;
 				}
 
 				if (this.schedule.course.length === 0) {
-					uni.navigateTo({
+					uni.redirectTo({
 						url: '/pages/schedule_detail/schedule_detail?name=' + encodeURIComponent(this.schedule.name)
 					});
 				}
@@ -71,7 +82,7 @@
 				
 				this.selectedCourses = [];
 				
-				uni.navigateTo({
+				uni.redirectTo({
 					url: '/pages/schedule_detail/schedule_detail?name=' + encodeURIComponent(this.schedule.name)
 				})
 			},
