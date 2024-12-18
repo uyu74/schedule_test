@@ -194,6 +194,7 @@ button {
 .btn-back {
   background-color: #28a745;
   color: white;
+  width: 120px;
 }
 
 .btn-back:hover {
@@ -203,6 +204,7 @@ button {
 .btn-delete {
   background-color: #dc3545;
   color: white;
+  width: 120px;
 }
 
 .btn-delete:hover {

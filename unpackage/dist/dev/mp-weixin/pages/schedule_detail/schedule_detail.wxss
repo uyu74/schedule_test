@@ -103,6 +103,7 @@ button.data-v-fde52a37 {
 .btn-back.data-v-fde52a37 {
   background-color: #28a745;
   color: white;
+  width: 120px;
 }
 .btn-back.data-v-fde52a37:hover {
   background-color: #218838;
@@ -110,6 +111,7 @@ button.data-v-fde52a37 {
 .btn-delete.data-v-fde52a37 {
   background-color: #dc3545;
   color: white;
+  width: 120px;
 }
 .btn-delete.data-v-fde52a37:hover {
   background-color: #c82333;
